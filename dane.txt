@@ -16,3 +16,6 @@ function loadXMLDoc() {
   xhttp.send();
 }
 </script>
+
+Link do strony interntowej:
+https://mikolajsuchan.github.io/EDI/
