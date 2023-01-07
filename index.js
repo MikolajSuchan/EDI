@@ -256,8 +256,7 @@ function getAllPlaces(persons) {
     for (const person of persons) {
         places.push(person["Place in the ranking"]);
     }
-    const placesSet = new Set(places)
-    return Array.from(placesSet);
+    return places;
 }
 
 function getMainIncomes(persons){
