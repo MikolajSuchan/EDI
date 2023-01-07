@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+main,
+section,
+footer {
+  margin-top: 5rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  margin: 4rem 0 2rem 0;
+  font-size: 3.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.teamMates {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.teamMate {
+  text-align: center;
+  font-weight: bold;
+}
+
+.teamMate-name {
+  font-size: 1.6rem;
+}
+
+.teamMate-album {
+  color: #333;
+}
+
+.teamMate-image {
+  width: 250px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main h2 {
+  margin: 0.5rem 0 1.5rem 0;
+  font-size: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  width: 70%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+}
+
+thead {
+  border-top: 1px solid black;
+  border-left: none;
+  border-right: none;
+  background-color: rgb(255, 255, 255);
+  padding: 0.5rem 0;
+  background-color: #280677;
+  color: white;
+}
+
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+th {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+th,
+td {
+  text-align: center;
+  line-height: 60px;
+  width: 225px;
+  margin: 0.25rem;
+  height: 60px;
+  font-size: 1.2rem;
+}
+
+td:first-of-type,
+th:first-of-type {
+  margin-right: auto;
+  font-weight: bold;
+}
+
+td:last-of-type,
+th:last-of-type {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+tbody tr:nth-of-type(2n) {
+  background-color: #e5e5e5;
+}
+
+tbody tr:nth-of-type(1) {
+  background-color: #e8b923;
+}
+
+tbody tr:nth-of-type(2) {
+  background-color: #bcd5e1;
+}
+
+tbody tr:nth-of-type(3) {
+  background-color: #bb7733;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+section h2 {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.canvases {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+canvas {
+  height: auto !important;
+  width: 45% !important;
+}

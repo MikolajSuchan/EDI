@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Dynamic Data-Fetching</title>
+</head>
+<body>
+    <header>
+        <h1>Dynamic Data-Fetching</h1>
+        <div class="teamMates">
+            <div class="teamMate">
+                <img src="./src/damian.jpg" alt="" class="teamMate-image">
+                <p class="teamMate-name">Damian Sikora</p>
+                <p class="teamMate-album">Nr albumu: <span class="teamMate-album_number">PODMIENIĆ</span></p>
+            </div>
 
+            <div class="teamMate">
+                <img src="./src/krystian.jpg" alt="" class="teamMate-image">
+                <p class="teamMate-name">Krystian Zdziebko</p>
+                <p class="teamMate-album">Nr albumu: <span class="teamMate-album_number">PODMIENIĆ</span></p>
+            </div>
+
+            <div class="teamMate">
+                <img src="./src/mikołaj.jpg" alt="" class="teamMate-image">
+                <p class="teamMate-name">Mikołaj Suchan</p>
+                <p class="teamMate-album">Nr albumu: <span class="teamMate-album_number">PODMIENIĆ</span></p>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h2>Data Charts</h2>
+        <div class="canvases">
+            <!-- używam canvasów bo tak działa biblioteka https://www.chartjs.org/ -->
+            <canvas id="chart1"></canvas>
+            <canvas id="chart2"></canvas>
+        </div>
+    </section>
+
+    <main>
+        <h2>Top 100 richest people in the world!</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Miejsce</th>
+                    <th>Imię Nazwisko</th>
+                    <th>Wiek</th>
+                    <th>Typ przychodu</th>
+                    <th>Pieniądze</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Tutaj będą tworzone i generowane za pomocą JavaScriptu poszczególne rekordy tabeli z ludźmi -->
+            </tbody>
+        </table>
+    </main>
+    
+<script src="index.js"></script>
+</body>
+</html>
