@@ -1,6 +1,6 @@
 // wywołanie głównej funkcji, która wszystko robi
 main()
-alert("Jeżeli w tablicy jest wszędzie undefined, a wykresy są dziwne to znaczy, że przekroczyliśmy limit 200 zapytań API dziennie. Dane w takim wypadku są hardcodowane w skrypcie. Usuń ten alert ze skryptu przed oddaniem projektu.")
+// alert("Jeżeli w tablicy jest wszędzie undefined, a wykresy są dziwne to znaczy, że przekroczyliśmy limit 200 zapytań API dziennie. Dane w takim wypadku są hardcodowane w skrypcie. Usuń ten alert ze skryptu przed oddaniem projektu.")
 
 //  async - funkcja asynchroniczna. Deklarujemy jej taki typ, żebyśmy mogli używać funkcji, które działają na Promisach (fetch).
 // Dzięki temu możemy użyć słowa "await", żeby poczekać aż dane się załadują i dopiero kod się wykona dalej
