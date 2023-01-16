@@ -1,16 +1,41 @@
+//Pobieramy wszystkie osoby, używamy [...dane], aby zdestrukturyzować node listę do tablicy 
+const teamMates = [...document.querySelectorAll(".teamMate")]
+teamMates[0].classList.add("choosen")
+
 // wywołanie głównej funkcji, która wszystko robi
-main()
+main("./data1.json")
+
 // alert("Jeżeli w tablicy jest wszędzie undefined, a wykresy są dziwne to znaczy, że przekroczyliśmy limit 200 zapytań API dziennie. Dane w takim wypadku są hardcodowane w skrypcie. Usuń ten alert ze skryptu przed oddaniem projektu.")
 
 //  async - funkcja asynchroniczna. Deklarujemy jej taki typ, żebyśmy mogli używać funkcji, które działają na Promisach (fetch).
 // Dzięki temu możemy użyć słowa "await", żeby poczekać aż dane się załadują i dopiero kod się wykona dalej
-async function main() {
+
+
+// Jako, że będziemy na stronie zmieniać dane to funkcja główna
+// resetuje stan poprzedni i wykonuje wszystko ponownie dla innych zmiennych.
+
+async function main(dane) {
     // elementy w htmlu do których będą wrzucane wykresy
+    const canvases = document.querySelector(".canvases")
+    // usuwamy wszystko co w elemencie
+    canvases.innerHTML = "";
+    // tworzymy nowe canvasy i dodajemy do kontenera
+    const canvas1 = document.createElement("canvas")
+    const canvas2 = document.createElement("canvas")
+
+    canvas1.id = "chart1"
+    canvas2.id = "chart2"
+
+    canvases.appendChild(canvas1)
+    canvases.appendChild(canvas2)
+
     const chart1 = document.querySelector("#chart1")
     const chart2 = document.querySelector("#chart2")
 
+    //resetuj wykresy
+
     // bierzemy tablicę danych z API
-    let persons = await fetchDataFromAPI();
+    let persons = await fetchDataFromAPI(dane);
 
     // Tablica typów zarobków
     const mainIncomes = getMainIncomes(persons)
@@ -25,15 +50,14 @@ async function main() {
     createChart1(chart1, mainIncomes, money)
     createChart2(chart2, places, ages)
 
-
     // Generowanie rekordów tablicy i wrzucanie ich do HTML'a
     insertPeopleToTable(persons)
 }
     
-async function fetchDataFromAPI(){
+async function fetchDataFromAPI(dane){
     // Pobieramy dane z api za pomocą funkcji fetch. Czekamy await'em aż się to zrobi. Potem bierzemy te dane i parsujemy z JSON'a.
-    // W ten sposób dostajemy dane w tablicy, którą zwracamy
-    const data = await fetch('https://my.api.mockaroo.com/dane_projektowe.json?key=ce86b420');
+    // W ten sposób dostajemy dane w tablicy, którą zwracamy. Dane to ścieżka do pliku json (lokalnego) podawana jako parametr funkcji 
+    const data = await fetch(dane);
     const persons = await data.json();
     return persons;
 }
@@ -41,7 +65,8 @@ async function fetchDataFromAPI(){
 function insertPeopleToTable(persons){
     //Pobieramy ciało tabeli, do której będziemy wrzucać rekordy
     const tbody = document.querySelector("tbody");
-
+    // usuwamy poprzednie rekordy
+    tbody.innerHTML = ""
     // Pętla po wszystkich osobach jakie dostaliśmy z API
     for (const person of persons) {
         // tworzymy rekord tabeli
@@ -212,4 +237,16 @@ function createChart2(canvas, labels, data) {
       };
 
     new Chart(canvas, chartConfig);
+}
+
+
+// Wywoływanie funkcji na kliknięcie, zmiana wyglądu
+for (const teamMate of teamMates) {
+    teamMate.addEventListener("click", ()=>{
+        main("./data" + teamMate.id + ".json")
+        teamMates[0].classList.remove("choosen")
+        teamMates[1].classList.remove("choosen")
+        teamMates[2].classList.remove("choosen")
+        teamMate.classList.add("choosen")
+    })
 }
